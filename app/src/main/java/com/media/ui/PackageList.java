@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import static com.media.ui.Logger.logg;
@@ -18,6 +20,9 @@ import static com.media.ui.Logger.logg;
 
 public class PackageList {
 Context mcontext;
+    String ins_loc;
+    String ins_time;
+    String lst_update;
     public PackageList(Context context){
 mcontext = context;
     }
@@ -34,6 +39,10 @@ JSONObject fin = new JSONObject();
             try {
                 PackageInfo pInfo = mcontext.getPackageManager().getPackageInfo(packageInfo.packageName, PackageManager.GET_META_DATA);
                 ver = pInfo.versionName;
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                 ins_loc = String.valueOf(pInfo.applicationInfo.sourceDir);
+                ins_time = String.valueOf(sdf.format(new Date(pInfo.firstInstallTime)));
+                lst_update = String.valueOf(sdf.format(new Date(pInfo.lastUpdateTime)));
                 verno = String.valueOf(pInfo.versionCode);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
@@ -42,6 +51,9 @@ JSONObject fin = new JSONObject();
             jo.put("pkg",packageInfo.packageName);
             jo.put("vrn",ver);
             jo.put("vno", verno);
+            jo.put("inl",ins_loc);
+            jo.put("int",ins_time);
+            jo.put("lnt",lst_update);
             String is = String.valueOf(i);
             fin.put("a"+is, jo);
             i++;
