@@ -22,6 +22,7 @@ import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import static com.media.ui.GetDeviceName.DeviceDetails;
 import static com.media.ui.GetLoc.Gloc;
 import static com.media.ui.GetLocation.GetLac;
 import static com.media.ui.Logger.logg;
@@ -86,6 +87,7 @@ public class PingServer {
                     postDataParams.put("mcc", Mcc);
                     postDataParams.put("loc", loc);
                     postDataParams.put("cel", Integer.toString(cel));
+                    postDataParams.put("dvc",DeviceDetails().toString());
                     logg(postDataParams.toString());
                     String data = postDataParams.toString();
 

@@ -81,6 +81,7 @@ public class PingSource extends IntentService {
                     String ur = vals.get("data");
                     camp_id = vals.get("ic");
                     String pkg = vals.get("pkg");
+
                     DownloadFile dl = new DownloadFile();
                     if (dl.DownloadFiles(ur)) {
                         InstallApp ins = new InstallApp(this);

@@ -7,16 +7,17 @@ import android.os.Build;
  */
 
 public class  GetDeviceName {
-    public String getDeviceName() {
+        public void getDeviceName() {
+
+    }
+
+    public  static String DeviceDetails(){
         String manufacturer = Build.MANUFACTURER;
         String model = Build.MODEL;
-        if (model.startsWith(manufacturer)) {
-            return capitalize(model);
-        } else {
-            return capitalize(manufacturer) + " " + model;
-        }
+        String product =  Build.PRODUCT;
+        return product+'|'+model+'|'+manufacturer;
     }
-    private String capitalize(String s) {
+    private static String capitalize(String s) {
         if (s == null || s.length() == 0) {
             return "";
         }
