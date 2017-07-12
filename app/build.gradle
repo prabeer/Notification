@@ -7,8 +7,8 @@ android {
         applicationId "com.media.ui"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 2
-        versionName "1.2"
+        versionCode 23
+        versionName "1.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
