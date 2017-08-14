@@ -50,7 +50,7 @@ public class PingSource extends IntentService {
     }
 
     public void onCreate() {
-        super.onCreate();
+            super.onCreate();
         // this gets called properly
         sharedPref = this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         logg("Service onCreate()");
